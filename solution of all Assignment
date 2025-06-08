@@ -1,0 +1,144 @@
+1)
+if __name__ == '__main__':
+    a = int(input())
+    b = int(input())
+
+    sum = a + b
+    sub = a - b
+    multiple = a * b
+
+    print(sum)
+    print(sub)
+    print(multiple)
+
+
+
+2)
+from itertools import groupby
+
+s = input()
+for key, group in groupby(s):
+    print((len(list(group)), int(key)), end=' ')
+
+
+
+
+
+3)
+def minion_game(string):
+    vowels = 'AEIOU'
+    kevin_score = 0
+    stuart_score = 0
+    n = len(string)
+
+    for i in range(n):
+        if string[i] in vowels:
+            kevin_score += n - i
+        else:
+            stuart_score += n - i
+
+    if kevin_score > stuart_score:
+        print("Kevin", kevin_score)
+    elif stuart_score > kevin_score:
+        print("Stuart", stuart_score)
+    else:
+        print("Draw")
+
+
+if __name__ == '__main__':
+    s = input()
+    minion_game(s)
+
+
+
+
+
+4)
+def is_leap(year):
+    leap = False
+    
+    # Write your logic here
+    if (year % 4 == 0):
+        if (year % 100 == 0):
+            if (year % 400 == 0):
+                return True
+            else:
+                return False
+        else:
+            return True
+    else:
+        return False
+
+    
+    return leap
+
+year = int(input())
+print(is_leap(year))
+
+
+
+
+
+
+
+
+
+5)
+from itertools import combinations
+
+n = int(input())
+letters = input().split()
+k = int(input())
+
+all_combinations = list(combinations(letters, k))
+count_with_a = sum(1 for combo in all_combinations if 'a' in combo)
+
+total_combinations = len(all_combinations)
+
+probability = count_with_a / total_combinations
+print(f"{probability:.4f}")
+
+
+
+
+6)
+if __name__ == '__main__':
+    n = int(input())                    
+    integer_list = tuple(map(int, input().split())) 
+    print(hash(integer_list))
+
+
+
+
+7)
+if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line))
+        student_marks[name] = scores
+
+    query_name = input()
+    average_marks = sum(student_marks[query_name]) / len(student_marks[query_name])
+    print(f"{average_marks:.2f}")
+
+
+
+8)
+def print_formatted(number):
+    width = len(bin(number)[2:]) 
+    for i in range(1, number + 1):
+        dec = str(i).rjust(width)
+        octal = oct(i)[2:].rjust(width)
+        hexa = hex(i)[2:].upper().rjust(width)
+        binary = bin(i)[2:].rjust(width)
+        print(f"{dec} {octal} {hexa} {binary}")
+
+
+if __name__ == '__main__':
+    n = int(input())
+    print_formatted(n)
+
+
+
